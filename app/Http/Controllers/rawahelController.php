@@ -14,7 +14,7 @@ use GuzzleHttp\Client;
 class rawahelController extends Controller
 {
 
-    protected $busess=['1037','1189','1066'];
+    protected $busess=['1037','1189','1066','1139'];
     public function index()
     {
 
@@ -59,10 +59,15 @@ class rawahelController extends Controller
             $status = LastStatus::where("BUSID",$BusId)->orderBy('BUSID', 'DESC')->first();
             if(isset($status)){
 
-                if(isset($unit['last_update'])){
-                    $points=['lat'=>(string)$unit['last_update']['lat'] ,'lng'=>(string)$unit['last_update']['lng']];            
-                    $address=  $instance->getAddress($points)['data']['address'];
-                    $status->STREET= $address;
+                if(isset($unit['last_update']) ){
+                    $points=['lat'=>(string)$unit['last_update']['lat'] ,'lng'=>(string)$unit['last_update']['lng']];
+                     if(isset($instance->getAddress($points)['data'])){
+
+                       
+                        $address=  $instance->getAddress($points)['data']['address'];
+                        $status->STREET= isset($address) ? $address : $status->STREET;
+                     }          
+                    
                 }
                 
 
