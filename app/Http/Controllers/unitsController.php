@@ -4,18 +4,17 @@ namespace App\Http\Controllers;
 
 class unitsController extends Controller
 {
-    public function index()
+    public function index($imei)
     {
 
 
 
         $data['data'] =  array(
-            "limit" => 5,
             "filters" => [
-                "imei" => "861230048802574"
+                "imei" => $imei
             ],
             'projection' => [
-                "basic",
+                "basic"
             ]
 
         );

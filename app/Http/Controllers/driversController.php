@@ -37,12 +37,12 @@ class driversController extends Controller
         return json_decode($response, true);
     }
 
-    public function bind()
+    public function bind($input)
     {
 
         $data['data'] =  array(
-            "driver_id" => "861230048802574",
-            "unit_id" => "861230048802574"
+            "driver_id" => $input['driver_id'],
+            "unit_id" => $input['unit_id']
 
         );
         $login = new authController();

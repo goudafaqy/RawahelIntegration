@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 
 // Update
-Route::get('index',  ['as' => 'rawahel', 'uses' => 'rawahelController@index']);
+Route::get('index',  ['as' => 'jomaih', 'uses' => 'jomaihController@index']);
 Route::get('test',  ['as' => 'test', 'uses' => 'testController@test']);
 
 // Auth
