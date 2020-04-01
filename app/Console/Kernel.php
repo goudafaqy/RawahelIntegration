@@ -25,10 +25,10 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
  // $this->info('Word of the Day sent to All Users');
-        $schedule->call('\App\Http\Controllers\rawahelController@index')
+        $schedule->call('\App\Http\Controllers\jomaihController@index')
                   ->everyMinute();
     }
-
+    
     /**
      * Register the commands for the application.
      *

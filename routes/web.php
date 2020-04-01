@@ -18,6 +18,8 @@ Route::get('/', function () {
 
 // Update
 Route::get('index',  ['as' => 'jomaih', 'uses' => 'jomaihController@index']);
+Route::get('group',  ['as' => 'group', 'uses' => 'jomaihController@group']);
+
 Route::get('test',  ['as' => 'test', 'uses' => 'testController@test']);
 
 // Auth

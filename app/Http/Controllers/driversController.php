@@ -6,14 +6,26 @@ class driversController extends Controller
 {
 
 
-    public function index()
+    public function index($rfid)
     {
 
         $data['data'] =  array(
-            "limit" => 5
-
+            "filters" => [
+                "rfid" => $rfid
+            ]
 
         );
+
+        $data['dataF'] =  array(
+            "filters" => [
+                "name" => ['value'=>$rfid , 'op' =>'like']
+            ]
+
+        );
+
+        
+        
+
         $login = new authController();
         $auth =  $login->login();
         $curl = curl_init();
